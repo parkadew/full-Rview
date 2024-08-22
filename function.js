@@ -1,6 +1,4 @@
 
-
-
 // let random = () => {
 //     let arr = []
 
@@ -10,10 +8,7 @@
 // let a = random()
 // console.log(a)
 
-
 let arr = [];
-
-
 
 let RandomNum = () => {
     arr = [];
@@ -32,7 +27,19 @@ let RandomNum = () => {
 
     document.getElementById("target").innerText = StringNumber
     document.getElementById("target").style.color = "#" + StringNumber
-}
-let Reset = () => {
-    document.getElementById("target").innerText = '000000'
+
+    let time = 5;
+
+    setInterval(() => {
+        if (time >= 0) {
+            const min = Math.floor(time / 60)
+            let sec = String(time % 60).padStart(2, "0")
+            document.getElementById('timer').innerText = min + ":" + sec
+            time = time - 1
+        }
+        else {
+            document.getElementById('finish').disabled = true
+        }
+    }, 1000);
+
 }
